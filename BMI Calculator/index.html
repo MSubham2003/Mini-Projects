@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>BMI Calculator</title>
+    <style>
+        #bmiCalculator {
+            margin: 0 auto;
+
+            text-align: center;
+            width: 300px;
+            padding: 20px;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+
+        input {
+            width: 90%;
+            margin: 10px 0;
+            padding: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: green;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+
+        }
+
+        button:hover {
+            background-color: red;
+        }
+
+
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="bmiCalculator">
+        <h2>BMI Calculator</h2>
+        <div class="weight-input"><label for="weight">Weight (kg): </label><input id="weight" type="number"
+                placeholder="Weight in kilograms"></div>
+        <div class="height-input"><label for="height">Height (cm): </label><input id="height" type="number"
+                placeholder="height in centimeters"></div>
+        <button onclick="calculateBMI()">Calculate BMI</button>
+        <div id="result"></div>
+    </div>
+    <script>
+        function calculateBMI() {
+            let weight = document.getElementById("weight").value;
+            let height = document.getElementById("height").value;
+            console.log(`${weight},${height}`);
+            let result = document.getElementById("result");
+            if (weight === "" || weight === "") {
+                result.textContent = "";
+            }
+            else {
+                let bmi = weight / ((height * height) / 10000);
+                bmi = bmi.toFixed(2);
+                result.textContent = bmi;
+            }
+        }
+    </script>
+</body>
+
+</html>
